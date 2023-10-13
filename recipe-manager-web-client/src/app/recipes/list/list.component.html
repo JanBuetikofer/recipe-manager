@@ -1,0 +1,25 @@
+<div>
+  <h1>Rezepte</h1>
+  <button (click)="onNew()" type="button" class="btn btn-primary">Neues Rezept hinzufügen</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let recipe of recipes">
+      <td>{{ recipe.id | number }}</td>
+      <td>{{ recipe.name }}</td>
+      <td>
+          <div class="buttonbar">
+            <button (click)="onEdit(recipe)" type="button" class="btn btn-secondary">Bearbeiten</button>
+            <button (click)="onDelete(recipe)" type="button" class="btn btn-danger">Löschen</button>
+          </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

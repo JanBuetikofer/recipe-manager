@@ -1,0 +1,53 @@
+<div>
+    <div>
+        <h1>{{title}}</h1>
+        <div class="mb-3 row">
+            <label for="typeahead-template" class="col-xs-3 col-sm-auto col-form-label">ID</label>
+            <div class="col">
+            <input disabled id="typeahead-template" type="text" class="form-control col" autocomplete="off" [(ngModel)]="recipeDto.id"/>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="typeahead-template" class="col-xs-3 col-sm-auto col-form-label">Name</label>
+            <div class="col">
+            <input id="typeahead-template" type="text" class="form-control col" autocomplete="off" [(ngModel)]="recipeDto.name"/>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div>
+                <button (click)="addNewIngredient()" type="button" class="btn btn-secondary">Zutat hinzufügen</button>
+            </div>
+            <div>
+                <ul *ngFor="let ingredient of recipeDto.ingredients; let index=index">
+                    <li>
+                        <mat-form-field>
+                            <input matInput autocomplete="off" placeholder="Anzahl" name="amount" [(ngModel)]=recipeDto.ingredients[index].amount>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput [disabled]="true" autocomplete="off" placeholder="Einheit" name="unit" [(ngModel)]=recipeDto.ingredients[index].ingredient.unit>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Zutat</mat-label>
+                            <mat-select
+                                (selectionChange)="onIngredientChange(index)"
+                                [compareWith]="compareObjects"
+                                [(ngModel)]=recipeDto.ingredients[index].ingredient>
+                                    <mat-option *ngFor="let selectedIngredient of availableIngredients" [value]="selectedIngredient">
+                                        {{selectedIngredient.name}}
+                                    </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <button (click)="onRemoveIngredient(ingredient)" type="button" class="btn btn-danger">Entfernen</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <div class="buttonbar">
+            <button (click)="onEditNavigate()" type="button" class="btn btn-primary">Speichern</button>
+            <button (click)="onBackNavigation()" type="button" class="btn btn-secondary">Zurück</button>
+        </div>
+    </div>
+</div>

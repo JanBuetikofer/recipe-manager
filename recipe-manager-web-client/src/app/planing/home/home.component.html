@@ -1,0 +1,76 @@
+<div>
+    <h1>{{title}}</h1>
+    <div class="mb-3 row">
+        <div>
+            <mat-form-field>
+                <input matInput autocomplete="off" placeholder="Anzahl Portionen" name="amount" [(ngModel)]=amount>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Rezept</mat-label>
+                <mat-select
+                    [(ngModel)]=chosenRecipe>
+                    <mat-option *ngFor="let availableMenu of availableMenus" [value]="availableMenu">
+                        {{availableMenu.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button (click)="addNewRecipeOrder()" type="button" class="btn btn-primary">Rezept hinzufügen</button>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Rezept</th>
+                        <th scope="col">Anzahl Portionen</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let chosenMenu of chosenMenus">
+                        <td>{{ chosenMenu.recipe.name }}</td>
+                        <td>{{ chosenMenu.amount }}</td>
+                        <td>
+                            <div class="buttonbar">
+                                <button (click)="removeChosenMenu(chosenMenu)" type="button" class="btn btn-danger">Entfernen</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div *ngIf="chosenMenus.length>0">
+            <button (click)="createGroceryList()" type="button" class="btn btn-primary">Einkaufsliste erstellen</button>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div *ngIf="groceryList.length>0">
+            <h3>Einkaufsliste</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Zutat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let groceryItem of groceryList">
+                        <td>{{ groceryItem.amount }} {{ groceryItem.ingredient.unit }} {{ groceryItem.ingredient.name }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div *ngIf=!todosCreated>
+                <a href="https://developer.microsoft.com/en-us/graph/graph-explorer" target="_blank">Get Bearer Token</a>
+                <mat-form-field>
+                    <input matInput autocomplete="off" placeholder="Bearer Token" name="bearer_token" [(ngModel)]=bearer_token>
+                </mat-form-field>
+                <button (click)="createTodoItems()" type="button" class="btn btn-primary">TODOs erstellen</button>
+            </div >
+            <div *ngIf=todosCreated>
+                {{ percentage_done }}/100
+            </div>
+        </div>
+    </div>
+</div>
