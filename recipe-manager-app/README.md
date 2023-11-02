@@ -1,0 +1,1 @@
+run "mvn clean install" and "docker build -t recipe-app ."

@@ -1,0 +1,11 @@
+services:
+   app:
+     image: recipe-app
+     ports:
+       - "8080:8080"
+     restart: always
+   web-client:
+     image: recipe-web
+     ports:
+       - "4200:4200"
+     restart: always
