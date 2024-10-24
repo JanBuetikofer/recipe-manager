@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({ declarations: [
         AppComponent
@@ -14,5 +16,6 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        NoopAnimationsModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        NoopAnimationsModule,
+        NgbModule], providers: [provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
 export class AppModule { }
