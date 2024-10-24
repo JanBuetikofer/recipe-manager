@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-import javax.validation.Valid;
-
 import com.github.JanBuetikofer.recipemanager.ingredient.IngredientRepo;
 import com.github.JanBuetikofer.recipemanager.recipeingredient.RecipeIngredient;
 import com.github.JanBuetikofer.recipemanager.recipeingredient.RecipeIngredientRepo;
 
+import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 @Service
 public class RecipeService {
@@ -71,7 +71,7 @@ public class RecipeService {
         return null;
     }
 
-    public Recipe addFullRecipe(@Valid RecipeDto recipeDto) {
+    public Recipe addFullRecipe(@Validated RecipeDto recipeDto) {
         Recipe recipe = new Recipe();
         recipe.setName(recipeDto.getName());
         recipe = recipeRepo.save(recipe);
@@ -87,7 +87,7 @@ public class RecipeService {
     }
 
     @Transactional
-    public Recipe updateFullRecipe(@Valid RecipeDto recipeDto) {
+    public Recipe updateFullRecipe(@Validated RecipeDto recipeDto) {
         Optional<Recipe> optRecipe = recipeRepo.findById(recipeDto.getId());
         if(optRecipe.isPresent()) {
             Recipe recipe = optRecipe.get();

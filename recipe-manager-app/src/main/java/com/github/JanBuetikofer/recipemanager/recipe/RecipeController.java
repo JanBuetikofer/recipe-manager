@@ -2,9 +2,8 @@ package com.github.JanBuetikofer.recipemanager.recipe;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,22 +43,22 @@ public class RecipeController {
     }
 
     @PostMapping("/full")
-    public Recipe addFullRecipe(@Valid @RequestBody RecipeDto recipeDto) {
+    public Recipe addFullRecipe(@Validated @RequestBody RecipeDto recipeDto) {
         return recipeService.addFullRecipe(recipeDto);
     }
 
     @PostMapping
-    public Recipe addRecipe(@Valid @RequestBody Recipe recipe) {
+    public Recipe addRecipe(@Validated @RequestBody Recipe recipe) {
         return recipeService.addRecipe(recipe);
     }
 
     @PutMapping("/full")
-    public Recipe updateFullRecipe(@Valid @RequestBody RecipeDto recipeDto) {
+    public Recipe updateFullRecipe(@Validated @RequestBody RecipeDto recipeDto) {
         return recipeService.updateFullRecipe(recipeDto);
     }
 
     @PutMapping
-    public Recipe updateRecipe(@Valid @RequestBody Recipe recipe) {
+    public Recipe updateRecipe(@Validated @RequestBody Recipe recipe) {
         return recipeService.updateRecipe(recipe);
     }
 

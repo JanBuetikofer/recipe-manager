@@ -2,9 +2,8 @@ package com.github.JanBuetikofer.recipemanager.recipeingredient;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,17 +26,17 @@ public class RecipeIngredientController {
     }
 
     @PostMapping
-    public RecipeIngredient addRecipeIngredients(@Valid @RequestBody RecipeIngredient recipeIngredient) {
+    public RecipeIngredient addRecipeIngredients(@Validated @RequestBody RecipeIngredient recipeIngredient) {
         return recipeIngredientService.addRecipeIngredients(recipeIngredient);
     }
 
     @PutMapping
-    public RecipeIngredient updateRecipeIngredients(@Valid @RequestBody RecipeIngredient recipeIngredient) {
+    public RecipeIngredient updateRecipeIngredients(@Validated @RequestBody RecipeIngredient recipeIngredient) {
         return recipeIngredientService.updateRecipeIngredients(recipeIngredient);
     }
 
     @DeleteMapping
-    public void deleteRecipeIngredients(@Valid @RequestBody RecipeIngredient recipeIngredient) {
+    public void deleteRecipeIngredients(@Validated @RequestBody RecipeIngredient recipeIngredient) {
         recipeIngredientService.deleteRecipeIngredients(recipeIngredient);
     }
 
