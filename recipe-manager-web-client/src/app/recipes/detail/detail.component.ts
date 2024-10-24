@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 import { Location } from '@angular/common'
 import { RecipeService } from 'src/app/core/services/recipe.service';
 import { Ingredient } from 'src/app/ingredients/ingredient';
@@ -25,7 +25,7 @@ export class DetailComponent implements OnInit {
   newRecipe:boolean=true;
   availableIngredients:Ingredient[] = [];
   filteredIngredients:Ingredient[] = [];
-  myControl = new FormControl();
+  myControl = new UntypedFormControl();
 
   constructor(
     private route: ActivatedRoute,

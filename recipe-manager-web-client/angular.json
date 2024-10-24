@@ -106,5 +106,7 @@
       }
     }
   },
-  "defaultProject": "recipe-manager"
+  "cli": {
+    "analytics": "84b5c36d-456f-4222-8256-44bf73f5bd40"
+  }
 }
