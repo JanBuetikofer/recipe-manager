@@ -3,10 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {UntypedFormControl} from '@angular/forms';
 import { Location } from '@angular/common'
 import { RecipeService } from 'src/app/core/services/recipe.service';
-import { Ingredient } from 'src/app/ingredients/ingredient';
+import { Ingredient } from 'src/app/features/ingredients/ingredient';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
 import { RecipeDto } from '../recipe-dto';
-import { IngredientsDto } from 'src/app/ingredients/ingredients-dto';
+import { IngredientsDto } from 'src/app/features/ingredients/ingredients-dto';
 import {Observable} from 'rxjs';
 import { startWith, debounceTime, distinctUntilChanged, switchMap, map } from 'rxjs/operators';
 import { MatSelectChange } from '@angular/material/select';

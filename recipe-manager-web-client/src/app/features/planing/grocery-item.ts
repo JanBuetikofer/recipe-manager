@@ -1,7 +1,7 @@
 import { Ingredient } from "../ingredients/ingredient";
 
 export class GroceryItem {
-    ingredient:Ingredient = new Ingredient();
+    ingredient:Ingredient = {} as Ingredient;
     amount:number = 0;
 
     constructor(ingredient:Ingredient, amount:number) {

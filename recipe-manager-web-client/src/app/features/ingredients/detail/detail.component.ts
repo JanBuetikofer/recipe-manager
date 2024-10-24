@@ -12,7 +12,7 @@ import { IngredientService } from 'src/app/core/services/ingredient.service';
 export class DetailComponent implements OnInit {
   
   id:any = 0;
-  ingredient:Ingredient = new Ingredient();
+  ingredient: Ingredient = {} as Ingredient;
   title:String = "Neue Zutat erfassen";
   newIngredient:boolean=true;
 
@@ -26,7 +26,6 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = params["id"];
-      console.log(this.id)
       if(this.id != 0 && this.id != 'new') {
         this.ingredientService.getIngredient(this.id).subscribe(ingredient => {
           this.ingredient = ingredient;

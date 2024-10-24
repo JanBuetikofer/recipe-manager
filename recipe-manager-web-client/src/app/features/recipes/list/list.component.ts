@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, map, of } from 'rxjs';
 import { Recipe } from '../recipe';
-import { RecipeService } from '../../core/services/recipe.service'
+import { RecipeService } from '../../../core/services/recipe.service'
 import { Router } from '@angular/router';
 
 @Component({
