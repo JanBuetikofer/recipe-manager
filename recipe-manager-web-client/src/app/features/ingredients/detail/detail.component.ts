@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common'
-import { Ingredient } from '../ingredient';
+import { Ingredient } from '../model/ingredient';
 import { IngredientService } from 'src/app/core/services/ingredient.service';
 
 @Component({
   selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css']
+  templateUrl: './detail.component.html'
 })
 export class DetailComponent implements OnInit {
-  
-  id:any = 0;
+
+  id: any = 0;
   ingredient: Ingredient = {} as Ingredient;
-  title:String = "Neue Zutat erfassen";
-  newIngredient:boolean=true;
+  title = 'Neue Zutat erfassen';
+  newIngredient = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +25,7 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = params["id"];
-      if(this.id != 0 && this.id != 'new') {
+      if (this.id != 0 && this.id != 'new') {
         this.ingredientService.getIngredient(this.id).subscribe(ingredient => {
           this.ingredient = ingredient;
           this.title = "Zutat bearbeiten";
@@ -41,10 +40,10 @@ export class DetailComponent implements OnInit {
   }
 
   onEditNavigate() {
-    if(this.newIngredient) {
-      this.ingredientService.createIngredient(this.ingredient).subscribe(() => {});
+    if (this.newIngredient) {
+      this.ingredientService.createIngredient(this.ingredient).subscribe(() => { });
     } else {
-      this.ingredientService.updateIngredient(this.ingredient).subscribe(() => {});
+      this.ingredientService.updateIngredient(this.ingredient).subscribe(() => { });
     }
     this.router.navigate([`/ingredients/list`]);
   }

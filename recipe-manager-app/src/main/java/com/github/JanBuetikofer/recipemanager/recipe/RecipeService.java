@@ -80,7 +80,7 @@ public class RecipeService {
             newrecipeIngredient = new RecipeIngredient();
             newrecipeIngredient.setAmount(recipeIngredient.getAmount());
             newrecipeIngredient.setRecipe(recipe);
-            newrecipeIngredient.setIngredient(ingredientRepo.getById(recipeIngredient.getIngredient().getId()));
+            newrecipeIngredient.setIngredient(ingredientRepo.findById(recipeIngredient.getIngredient().getId()).orElseThrow());
             recipeIngredientRepo.save(newrecipeIngredient);
         }
         return recipe;
@@ -99,7 +99,7 @@ public class RecipeService {
                 newrecipeIngredient = new RecipeIngredient();
                 newrecipeIngredient.setAmount(recipeIngredient.getAmount());
                 newrecipeIngredient.setRecipe(recipe);
-                newrecipeIngredient.setIngredient(ingredientRepo.getById(recipeIngredient.getIngredient().getId()));
+                newrecipeIngredient.setIngredient(ingredientRepo.findById(recipeIngredient.getIngredient().getId()).orElseThrow());
                 recipeIngredientRepo.save(newrecipeIngredient);
             }
             return recipe;

@@ -9,6 +9,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { CoreModule } from './core/core.module';
         AppRoutingModule,
         FormsModule,
         CoreModule,
+        SharedModule,
         ReactiveFormsModule,
         NoopAnimationsModule,
         NgbModule

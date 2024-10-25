@@ -2,7 +2,6 @@ package com.github.JanBuetikofer.recipemanager.ingredient;
 
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,12 +30,12 @@ public class IngredientController {
     }
 
     @GetMapping("/{id}")
-    public Ingredient getIngredient(@PathVariable("id") Integer id) {
+    public Ingredient getIngredient(@PathVariable("id") Long id) {
         return ingredientService.getIngredient(id);
     }
 
     @PostMapping
-    public Ingredient addIngredient(@Validated @RequestBody Ingredient ingredient) {
+    public Ingredient addIngredient(@Validated @RequestBody IngredientDto ingredient) {
         return ingredientService.addIngredient(ingredient);
     }
 
@@ -46,7 +45,7 @@ public class IngredientController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<HttpStatus> deleteIngredient(@PathVariable("id") Integer id) {
+    public ResponseEntity<Void> deleteIngredient(@PathVariable("id") Long id) {
         return ingredientService.deleteIngredient(id);
     }
 }

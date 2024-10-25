@@ -1,6 +1,13 @@
-<div>
-  <h1>Zutaten</h1>
-  <button (click)="onNew()" type="button" class="btn btn-primary">Neue Zutat hinzufügen</button>
+<general-page></general-page>
+<div class="container mt-5">
+  <div class="row justify-content-between">
+    <div class="col-4">
+      <h1>Zutaten</h1>
+    </div>
+    <div class="col-2">
+      <button (click)="onNew()" type="button" class="btn btn-primary">Neue Zutat hinzufügen</button>  
+    </div>
+  </div>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -17,7 +24,7 @@
       <td>{{ ingredient.unit }}</td>
       <td>
           <div class="buttonbar">
-            <button (click)="onEdit(ingredient)" type="button" class="btn btn-secondary">Bearbeiten</button>
+            <button (click)="onEdit(ingredient)" type="button" class="btn btn-secondary me-2">Bearbeiten</button>
             <button (click)="onDelete(ingredient)" type="button" class="btn btn-danger">Löschen</button>
           </div>
       </td>

@@ -1,0 +1,13 @@
+<div class="container mt-3">
+    <div class="modal-header">
+            <h1 class="modal-title">{{title}}</h1>
+            <button type="button" class="btn-close" (click)="closeModal()"></button>
+    </div>
+    <div class="modal-body">
+        <ng-content></ng-content>
+    </div>
+    <div class="modal-footer">
+		<button type="button" class="btn btn-light" (click)="closeModal()">Abbrechen</button>
+		<button type="button" class="btn btn-dark" (click)="save()">Speichern</button>
+	</div>
+</div>

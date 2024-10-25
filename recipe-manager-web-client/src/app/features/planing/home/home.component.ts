@@ -4,7 +4,7 @@ import { MatSelectChange } from '@angular/material/select';
 import { Recipe } from 'src/app/features/recipes/recipe';
 import { RecipeOrder } from '../recipe-order';
 import { GroceryItem } from '../grocery-item';
-import { IngredientsDto } from 'src/app/features/ingredients/ingredients-dto';
+import { IngredientsDto } from 'src/app/features/ingredients/model/ingredients-dto';
 import { TodoService } from 'src/app/core/services/todo.service';
 
 @Component({

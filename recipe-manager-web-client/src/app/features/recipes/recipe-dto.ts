@@ -1,4 +1,4 @@
-import { IngredientsDto } from "../ingredients/ingredients-dto";
+import { IngredientsDto } from "../ingredients/model/ingredients-dto";
 
 export class RecipeDto {
     id: number = 0;

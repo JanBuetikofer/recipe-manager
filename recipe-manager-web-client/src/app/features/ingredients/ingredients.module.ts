@@ -1,21 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IngredientsRoutingModule } from './ingredients-routing.module';
-import { ListComponent } from './list/list.component';
+import { IngredientsListComponent } from './ingredients-list/ingredients-list.component';
 import { DetailComponent } from './detail/detail.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { IngredientsFormComponent } from './ingredients-detail/ingredients-form/ingredients-form.component';
+import { IngredientsCreateComponent } from './ingredients-detail/ingredients-create/ingredients-create.component';
 
 
 @NgModule({
   declarations: [
-    ListComponent,
+    IngredientsListComponent,
+    IngredientsFormComponent,
+    IngredientsCreateComponent,
     DetailComponent
   ],
   imports: [
     CommonModule,
+    SharedModule,
     IngredientsRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class IngredientsModule { }

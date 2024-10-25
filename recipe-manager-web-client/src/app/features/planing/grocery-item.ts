@@ -1,4 +1,4 @@
-import { Ingredient } from "../ingredients/ingredient";
+import { Ingredient } from "../ingredients/model/ingredient";
 
 export class GroceryItem {
     ingredient:Ingredient = {} as Ingredient;
